@@ -20,7 +20,7 @@ public class Main {
 
 		int input = 20;
 		String result;
-		Binary tree = new Binary();
+		BinaryMatrix tree = new BinaryMatrix();
 
 
 		while(input != 0 ){
@@ -40,32 +40,33 @@ public class Main {
 						break;
 					case 2:
 						String vl = JOptionPane.showInputDialog("Digite o valor que você deseja Remover!");
-						tree.remove(tree.getRoot(),Integer.parseInt(vl));
+						tree.remove(Integer.parseInt(vl));
 						break;
 					case 3:
-						JOptionPane.showMessageDialog(null,"Os valores Serão exibidos no console!");
+						JOptionPane.showMessageDialog(null, "Os valores serão exibidos no console!");
 						tree.showRoot();
 						System.out.println("");
 						break;
 					case 4:
-						JOptionPane.showMessageDialog(null,"Os valores Serão exibidos no console!");
+						JOptionPane.showMessageDialog(null, "Os valores serão exibidos no console!");
 						System.out.println("Ordem simétrica:");
-						tree.inOrder(tree.getRoot());
+						tree.inOrder(0);
 						System.out.println("");
 						break;
 					case 5:
-						JOptionPane.showMessageDialog(null,"Os valores Serão exibidos no console!");
+						JOptionPane.showMessageDialog(null, "Os valores serão exibidos no console!");
 						System.out.println("Pré-ordem:");
-						tree.preOrder(tree.getRoot());
+						tree.preOrder(0);
 						System.out.println("");
 						break;
 					case 6:
-						JOptionPane.showMessageDialog(null,"Os valores Serão exibidos no console!");
+						JOptionPane.showMessageDialog(null, "Os valores serão exibidos no console!");
 						System.out.println("Pós-ordem:");
-						tree.postOrder(tree.getRoot());
+						tree.postOrder(0);
 						System.out.println("");
 						break;
 				}
+
 
 
 			}

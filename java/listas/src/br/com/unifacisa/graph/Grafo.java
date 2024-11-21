@@ -3,6 +3,7 @@ package br.com.unifacisa.graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Grafo {
 
@@ -25,6 +26,29 @@ public class Grafo {
 		 */
 		adjacencyList.get(v).add(w);
 		adjacencyList.get(w).add(v); // Como é um grafo não direcionado, adicionamos a ligação inversa também
+	}
+
+	public void bsfGraph(int startVertex) {
+		boolean[] visited = new boolean[numVertices];
+		Queue<Integer> queue = new LinkedList<>();
+
+		visited[startVertex] = true;
+		queue.add(startVertex);
+
+		System.out.println("Busca em Largura a partir do vértice " + startVertex + ":");
+
+		while (!queue.isEmpty()) {
+			int currentVertex = queue.poll();
+			System.out.print(currentVertex + " ");
+
+			for (int neighbor : adjacencyList.get(currentVertex)) {
+				if (!visited[neighbor]) {
+					visited[neighbor] = true;
+					queue.add(neighbor);
+				}
+			}
+		}
+		System.out.println("\n" + "-----------------------------------------");
 	}
 
 	@Override
@@ -54,5 +78,7 @@ public class Grafo {
 		grafo.addEdge(3, 4);
 
 		System.out.println(grafo.toString());
+
+		grafo.bsfGraph(0);
 	}
 }
